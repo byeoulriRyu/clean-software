@@ -1,5 +1,7 @@
 package org.example.transaction;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.example.PayrollDatabase;
 import org.example.classification.PaymentClassification;
 import org.example.entity.Employee;
@@ -7,19 +9,12 @@ import org.example.method.HoldMethod;
 import org.example.method.PaymentMethod;
 import org.example.schedule.PaymentSchedule;
 
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class AddEmployeeTransaction implements Transaction{
     private int empId;
     private String name;
     private String address;
-
-    public AddEmployeeTransaction() {
-    }
-
-    public AddEmployeeTransaction(int empId, String address, String name) {
-        this.empId = empId;
-        this.address = address;
-        this.name = name;
-    }
 
     public abstract PaymentClassification getClassification();
     public abstract PaymentSchedule getSchedule();
@@ -29,10 +24,16 @@ public abstract class AddEmployeeTransaction implements Transaction{
         PaymentClassification pc = getClassification();
         PaymentSchedule ps = getSchedule();
         PaymentMethod pm = new HoldMethod();
-        Employee employee = new Employee(empId, address, name);
-        employee.setClassification(pc);
-        employee.setSchedule(ps);
-        employee.setMethod(pm);
+
+        Employee employee = Employee.builder()
+                .empId(empId)
+                .name(name)
+                .address(address)
+                .classification(pc)
+                .schedule(ps)
+                .method(pm)
+                .build();
+
         PayrollDatabase.addEmployee(empId, employee);
     }
 
