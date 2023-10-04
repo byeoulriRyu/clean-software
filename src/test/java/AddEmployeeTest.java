@@ -14,9 +14,15 @@ import org.example.schedule.MonthlySchedule;
 import org.example.schedule.PaymentSchedule;
 import org.example.schedule.WeeklySchedule;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-public class PayrollTest {
+public class AddEmployeeTest {
+
+    @BeforeAll
+    public static void before() {
+        PayrollDatabase.clear();
+    }
 
     @Test
     public void testAddSalariedEmployee() throws Exception {
