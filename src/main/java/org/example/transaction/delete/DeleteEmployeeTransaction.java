@@ -1,4 +1,4 @@
-package org.example.transaction.add;
+package org.example.transaction.delete;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;

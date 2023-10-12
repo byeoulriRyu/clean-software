@@ -34,7 +34,7 @@ public class ServiceChargeTransactionTest {
         Assertions.assertNotNull(e);
 
         UnionAffiliation af = UnionAffiliation.builder()
-                .amount(amount)
+                .dues(amount)
                 .build();
 
         e.setAffiliation(af);

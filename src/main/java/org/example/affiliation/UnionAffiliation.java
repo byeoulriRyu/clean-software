@@ -10,7 +10,8 @@ import java.util.Map;
 @Getter
 @Builder
 public class UnionAffiliation implements Affiliation {
-    private double amount;
+    private int memberId;
+    private double dues;
 
     @Builder.Default
     private Map<Long, ServiceCharge> serviceChargeMap = new LinkedHashMap<>();
