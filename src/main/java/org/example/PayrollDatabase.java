@@ -35,4 +35,7 @@ public class PayrollDatabase {
         itsUnionMember.put(memberId, employee);
     }
 
+    public static void removeUnionMember(int memberId) {
+        itsUnionMember.remove(memberId);
+    }
 }
