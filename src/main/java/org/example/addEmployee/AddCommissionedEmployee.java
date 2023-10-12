@@ -21,7 +21,9 @@ public class AddCommissionedEmployee extends AddEmployeeTransaction {
 
     @Override
     public PaymentClassification getClassification() {
-        return new CommissionedClassification(salary, commissionRate);
+        return CommissionedClassification.builder()
+                .salary(salary).commissionRate(commissionRate)
+                .build();
     }
 
     @Override
