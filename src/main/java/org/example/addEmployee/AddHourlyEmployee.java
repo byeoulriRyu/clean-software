@@ -5,7 +5,7 @@ import org.example.classification.HourlyClassification;
 import org.example.classification.PaymentClassification;
 import org.example.schedule.PaymentSchedule;
 import org.example.schedule.WeeklySchedule;
-import org.example.transaction.AddEmployeeTransaction;
+import org.example.transaction.add.AddEmployeeTransaction;
 
 @NoArgsConstructor
 public class AddHourlyEmployee extends AddEmployeeTransaction {

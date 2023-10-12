@@ -1,7 +1,9 @@
+package add;
+
 import org.example.PayrollDatabase;
 import org.example.addEmployee.AddCommissionedEmployee;
 import org.example.entity.Employee;
-import org.example.transaction.DeleteEmployeeTransaction;
+import org.example.transaction.add.DeleteEmployeeTransaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

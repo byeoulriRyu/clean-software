@@ -5,7 +5,7 @@ import org.example.classification.CommissionedClassification;
 import org.example.classification.PaymentClassification;
 import org.example.schedule.BiweeklySchedule;
 import org.example.schedule.PaymentSchedule;
-import org.example.transaction.AddEmployeeTransaction;
+import org.example.transaction.add.AddEmployeeTransaction;
 
 @NoArgsConstructor
 public class AddCommissionedEmployee extends AddEmployeeTransaction {

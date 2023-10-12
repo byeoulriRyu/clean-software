@@ -1,3 +1,5 @@
+package add;
+
 import org.example.PayrollDatabase;
 import org.example.addEmployee.AddCommissionedEmployee;
 import org.example.addEmployee.AddHourlyEmployee;

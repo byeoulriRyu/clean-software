@@ -1,4 +1,4 @@
-package org.example.transaction;
+package org.example.transaction.add;
 
 import lombok.Builder;
 import org.example.PayrollDatabase;
@@ -9,9 +9,10 @@ import org.example.classification.PaymentClassification;
 import org.example.entity.Employee;
 import org.example.entity.SalesReceipt;
 import org.example.entity.ServiceCharge;
+import org.example.transaction.Transaction;
 
 @Builder
-public class ServiceChargeTransaction implements Transaction{
+public class ServiceChargeTransaction implements Transaction {
     private int memberId;
     private long date;
     private double amount;

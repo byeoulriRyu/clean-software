@@ -1,13 +1,11 @@
+package add;
+
 import org.example.PayrollDatabase;
 import org.example.addEmployee.AddHourlyEmployee;
 import org.example.affiliation.UnionAffiliation;
-import org.example.classification.HourlyClassification;
-import org.example.classification.PaymentClassification;
 import org.example.entity.Employee;
 import org.example.entity.ServiceCharge;
-import org.example.entity.TimeCard;
-import org.example.transaction.ServiceChargeTransaction;
-import org.example.transaction.TimeCardTransaction;
+import org.example.transaction.add.ServiceChargeTransaction;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -4,7 +4,7 @@ import org.example.classification.PaymentClassification;
 import org.example.classification.SalariedClassification;
 import org.example.schedule.MonthlySchedule;
 import org.example.schedule.PaymentSchedule;
-import org.example.transaction.AddEmployeeTransaction;
+import org.example.transaction.add.AddEmployeeTransaction;
 
 public class AddSalariedEmployee extends AddEmployeeTransaction {
 

@@ -1,12 +1,13 @@
-package org.example.transaction;
+package org.example.transaction.add;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.example.PayrollDatabase;
+import org.example.transaction.Transaction;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class DeleteEmployeeTransaction implements Transaction{
+public class DeleteEmployeeTransaction implements Transaction {
 
     private int empId;
 

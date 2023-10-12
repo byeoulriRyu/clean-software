@@ -1,4 +1,4 @@
 package org.example.schedule;
 
-public class PaymentSchedule {
+public interface PaymentSchedule {
 }

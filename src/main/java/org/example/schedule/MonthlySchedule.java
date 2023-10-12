@@ -1,4 +1,4 @@
 package org.example.schedule;
 
-public class MonthlySchedule extends PaymentSchedule{
+public class MonthlySchedule implements PaymentSchedule{
 }
