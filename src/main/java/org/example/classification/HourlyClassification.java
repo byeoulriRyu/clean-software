@@ -12,7 +12,7 @@ import java.util.Map;
 @Getter
 @Setter
 @Builder
-public class HourlyClassification extends PaymentClassification {
+public class HourlyClassification implements PaymentClassification {
 
     private double hourlyRate;
 

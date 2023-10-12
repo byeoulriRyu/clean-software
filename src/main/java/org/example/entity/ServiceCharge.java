@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class SalesReceipt {
+public class ServiceCharge {
 
     private long date;
     private double amount;

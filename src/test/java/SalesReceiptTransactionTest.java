@@ -22,14 +22,14 @@ public class SalesReceiptTransactionTest {
     }
 
     @Test
-    public void testTimeCardTransaction() throws Exception {
+    public void testSalesReceiptTransaction() throws Exception {
         int empId = 2;
         String name = "Bill";
         String address = "Home";
         double salary = 2800;
         double commissionRate = 3;
         long date = 20011031;
-        int amount = 10;
+        double amount = 10;
 
         AddCommissionedEmployee addCommissionedEmployee = new AddCommissionedEmployee(empId, address, name, salary, commissionRate);
         addCommissionedEmployee.excute();

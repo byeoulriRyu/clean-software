@@ -13,7 +13,7 @@ import java.util.Map;
 @Getter
 @Setter
 @Builder
-public class CommissionedClassification extends PaymentClassification {
+public class CommissionedClassification implements PaymentClassification {
     private double salary;
     private double commissionRate;
 

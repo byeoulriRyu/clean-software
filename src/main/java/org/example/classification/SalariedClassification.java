@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class SalariedClassification extends PaymentClassification {
+public class SalariedClassification implements PaymentClassification {
 
     private double salary;
 

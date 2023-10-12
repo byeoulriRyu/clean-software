@@ -1,4 +1,4 @@
 package org.example.affiliation;
 
-public class Affiliation {
+public interface Affiliation {
 }
