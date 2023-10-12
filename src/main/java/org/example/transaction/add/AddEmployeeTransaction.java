@@ -3,6 +3,8 @@ package org.example.transaction.add;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.example.PayrollDatabase;
+import org.example.affiliation.Affiliation;
+import org.example.affiliation.NoAffiliation;
 import org.example.classification.PaymentClassification;
 import org.example.entity.Employee;
 import org.example.method.HoldMethod;
@@ -25,6 +27,7 @@ public abstract class AddEmployeeTransaction implements Transaction {
         PaymentClassification pc = getClassification();
         PaymentSchedule ps = getSchedule();
         PaymentMethod pm = HoldMethod.builder().build();
+        Affiliation af = NoAffiliation.builder().build();
 
         Employee employee = Employee.builder()
                 .empId(empId)
@@ -33,6 +36,7 @@ public abstract class AddEmployeeTransaction implements Transaction {
                 .classification(pc)
                 .schedule(ps)
                 .method(pm)
+                .affiliation(af)
                 .build();
 
         PayrollDatabase.addEmployee(empId, employee);

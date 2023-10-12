@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.example.entity.SalesReceipt;
 import org.example.entity.TimeCard;
+import org.example.transaction.pay.PayCheck;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -26,5 +27,10 @@ public class CommissionedClassification implements PaymentClassification {
 
     public SalesReceipt getSalesReceipt(long date) {
         return salesReceiptMap.get(date);
+    }
+
+    @Override
+    public double calculatePay(PayCheck pc) {
+        return 0;
     }
 }

@@ -3,10 +3,14 @@ package org.example.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.PayrollDatabase;
 import org.example.affiliation.Affiliation;
 import org.example.classification.PaymentClassification;
 import org.example.method.PaymentMethod;
 import org.example.schedule.PaymentSchedule;
+import org.example.transaction.pay.PayCheck;
+
+import java.util.Date;
 
 
 @Getter
@@ -21,5 +25,23 @@ public class Employee {
     private PaymentSchedule schedule;
     private PaymentMethod method;
     private Affiliation affiliation;
+
+    public boolean isPayDate(Date payDate) {
+        return schedule.isPayDate(payDate);
+    }
+
+    public Date getPayPeriodStartDate(Date payPeriodEndDate) {
+        return schedule.getPayPeriodStartDate(payPeriodEndDate);
+    }
+
+    public void payDay(PayCheck pc) {
+        double grossDay = classification.calculatePay(pc);
+        double deductions = affiliation.calculateDeductions(pc);
+        double netPay = grossDay - deductions;
+        pc.setGrossDay(grossDay);
+        pc.setDeductions(deductions);
+        pc.setNetPay(netPay);
+        method.pay(pc);
+    }
 
 }

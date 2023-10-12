@@ -3,7 +3,9 @@ package org.example;
 import lombok.NoArgsConstructor;
 import org.example.entity.Employee;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @NoArgsConstructor
@@ -37,5 +39,9 @@ public class PayrollDatabase {
 
     public static void removeUnionMember(int memberId) {
         itsUnionMember.remove(memberId);
+    }
+
+    public static List<Integer> getAllEmployeeIds() {
+        return new ArrayList<>(itsEmployee.keySet());
     }
 }

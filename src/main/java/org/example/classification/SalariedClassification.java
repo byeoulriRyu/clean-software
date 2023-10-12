@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.example.transaction.pay.PayCheck;
 
 @Getter
 @Setter
@@ -12,4 +13,8 @@ public class SalariedClassification implements PaymentClassification {
 
     private double salary;
 
+    @Override
+    public double calculatePay(PayCheck pc) {
+        return salary;
+    }
 }
