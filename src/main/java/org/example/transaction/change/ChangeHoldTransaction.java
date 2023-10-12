@@ -1,10 +1,18 @@
 package org.example.transaction.change;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.example.transaction.Transaction;
+import org.example.method.HoldMethod;
+import org.example.method.PaymentMethod;
 
 @NoArgsConstructor
-public abstract class ChangeHoldTransaction implements Transaction {
+public class ChangeHoldTransaction extends ChangeMethodTransaction {
 
+    public ChangeHoldTransaction(int empId) {
+        super(empId);
+    }
+
+    @Override
+    PaymentMethod getMethod() {
+        return HoldMethod.builder().build();
+    }
 }

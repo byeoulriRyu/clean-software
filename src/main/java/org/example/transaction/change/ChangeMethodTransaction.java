@@ -1,10 +1,20 @@
 package org.example.transaction.change;
 
-import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.example.transaction.Transaction;
+import org.example.entity.Employee;
+import org.example.method.PaymentMethod;
 
 @NoArgsConstructor
-public abstract class ChangeMethodTransaction implements Transaction {
+public abstract class ChangeMethodTransaction extends ChangeEmployeeTransaction {
 
+    public ChangeMethodTransaction(int empId) {
+        super(empId);
+    }
+
+    @Override
+    public void change(Employee e) {
+        e.setMethod(e.getMethod());
+    }
+
+    abstract PaymentMethod getMethod();
 }

@@ -24,7 +24,7 @@ public abstract class AddEmployeeTransaction implements Transaction {
     public void excute() throws Exception {
         PaymentClassification pc = getClassification();
         PaymentSchedule ps = getSchedule();
-        PaymentMethod pm = new HoldMethod();
+        PaymentMethod pm = HoldMethod.builder().build();
 
         Employee employee = Employee.builder()
                 .empId(empId)
