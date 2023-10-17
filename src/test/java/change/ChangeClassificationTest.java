@@ -2,7 +2,6 @@ package change;
 
 import org.example.PayrollDatabase;
 import org.example.addEmployee.AddCommissionedEmployee;
-import org.example.addEmployee.AddHourlyEmployee;
 import org.example.classification.CommissionedClassification;
 import org.example.classification.HourlyClassification;
 import org.example.classification.PaymentClassification;
@@ -33,7 +32,7 @@ public class ChangeClassificationTest {
         double commissionRate = 3.2;
 
         AddCommissionedEmployee ace = new AddCommissionedEmployee(empId, name, address, salary, commissionRate);
-        ace.excute();
+        ace.execute();
     }
 
     @Test
@@ -43,7 +42,7 @@ public class ChangeClassificationTest {
         double hourlyRate = 27.52;
 
         ChangeHourlyTransaction cht = new ChangeHourlyTransaction(empId, hourlyRate);
-        cht.excute();
+        cht.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);
@@ -67,7 +66,7 @@ public class ChangeClassificationTest {
         double changeSalary = 2800;
 
         ChangeSalariedTransaction cst = new ChangeSalariedTransaction(empId, changeSalary);
-        cst.excute();
+        cst.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);
@@ -93,7 +92,7 @@ public class ChangeClassificationTest {
         double changeCommissionRate = 3.5;
 
         ChangeCommissionedTransaction cct = new ChangeCommissionedTransaction(empId, salary, changeCommissionRate);
-        cct.excute();
+        cct.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);

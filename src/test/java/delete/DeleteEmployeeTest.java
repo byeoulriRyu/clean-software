@@ -24,13 +24,13 @@ public class DeleteEmployeeTest {
         double commissionRate = 3.2;
 
         AddCommissionedEmployee addCommissionedEmployee = new AddCommissionedEmployee(empId, name, address, salary, commissionRate);
-        addCommissionedEmployee.excute();
+        addCommissionedEmployee.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);
 
         DeleteEmployeeTransaction dt = new DeleteEmployeeTransaction(empId);
-        dt.excute();
+        dt.execute();
 
         e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNull(e);

@@ -29,14 +29,14 @@ public class SalesReceiptTransactionTest {
         double amount = 10;
 
         AddCommissionedEmployee addCommissionedEmployee = new AddCommissionedEmployee(empId, address, name, salary, commissionRate);
-        addCommissionedEmployee.excute();
+        addCommissionedEmployee.execute();
 
         SalesReceiptTransaction srt = SalesReceiptTransaction.builder()
                 .empId(empId)
                 .date(date)
                 .amount(amount)
                 .build();
-        srt.excute();
+        srt.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);

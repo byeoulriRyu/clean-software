@@ -12,7 +12,7 @@ public class DeleteEmployeeTransaction implements Transaction {
     private int empId;
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
         PayrollDatabase.deleteEmployee(empId);
     }
 

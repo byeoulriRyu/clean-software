@@ -15,7 +15,7 @@ public class TimeCardTransaction implements Transaction {
     private double hours;
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
 
         Employee emp = PayrollDatabase.getEmployee(empId);
 

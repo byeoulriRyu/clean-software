@@ -17,7 +17,7 @@ public class SalesReceiptTransaction implements Transaction {
     private double amount;
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
 
         Employee emp = PayrollDatabase.getEmployee(empId);
 

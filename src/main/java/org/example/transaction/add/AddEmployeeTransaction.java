@@ -23,7 +23,7 @@ public abstract class AddEmployeeTransaction implements Transaction {
     public abstract PaymentSchedule getSchedule();
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
         PaymentClassification pc = getClassification();
         PaymentSchedule ps = getSchedule();
         PaymentMethod pm = HoldMethod.builder().build();

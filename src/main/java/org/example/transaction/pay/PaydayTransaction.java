@@ -22,7 +22,7 @@ public class PaydayTransaction implements Transaction {
     private Map<Integer, PayCheck> itsPayChecks = new HashMap<Integer, PayCheck>();
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
         PayrollDatabase.getAllEmployeeIds().forEach(empId -> {
             Employee e = PayrollDatabase.getEmployee(empId);
             if (e != null && e.isPayDate(payDate)) {

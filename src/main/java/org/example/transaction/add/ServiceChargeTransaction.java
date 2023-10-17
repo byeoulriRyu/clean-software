@@ -4,10 +4,7 @@ import lombok.Builder;
 import org.example.PayrollDatabase;
 import org.example.affiliation.Affiliation;
 import org.example.affiliation.UnionAffiliation;
-import org.example.classification.CommissionedClassification;
-import org.example.classification.PaymentClassification;
 import org.example.entity.Employee;
-import org.example.entity.SalesReceipt;
 import org.example.entity.ServiceCharge;
 import org.example.transaction.Transaction;
 
@@ -18,7 +15,7 @@ public class ServiceChargeTransaction implements Transaction {
     private double amount;
 
     @Override
-    public void excute() throws Exception {
+    public void execute() throws Exception {
 
         Employee emp = PayrollDatabase.getUnionMember(memberId);
 

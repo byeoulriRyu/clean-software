@@ -28,7 +28,7 @@ public class ServiceChargeTransactionTest {
         double amount = 12.95;
 
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address, hourlyRate);
-        addHourlyEmployee.excute();
+        addHourlyEmployee.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);
@@ -48,7 +48,7 @@ public class ServiceChargeTransactionTest {
                 .date(date)
                 .amount(amount)
                 .build();
-        sct.excute();
+        sct.execute();
 
         ServiceCharge sc = af.getServiceCharge(date);
         Assertions.assertNotNull(sc);

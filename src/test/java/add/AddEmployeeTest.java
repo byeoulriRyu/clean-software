@@ -34,7 +34,7 @@ public class AddEmployeeTest {
         double salary = 1000.00;
 
         AddSalariedEmployee addSalariedEmployee = new AddSalariedEmployee(empId, name, address, salary);
-        addSalariedEmployee.excute();
+        addSalariedEmployee.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertEquals(name, e.getName());
@@ -60,7 +60,7 @@ public class AddEmployeeTest {
         double hourlyRate = 50;
 
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address, hourlyRate);
-        addHourlyEmployee.excute();
+        addHourlyEmployee.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertEquals(name, e.getName());
@@ -87,7 +87,7 @@ public class AddEmployeeTest {
         double commissionRate = 10;
 
         AddCommissionedEmployee addCommissionedEmployee = new AddCommissionedEmployee(empId, name, address, salary, commissionRate);
-        addCommissionedEmployee.excute();
+        addCommissionedEmployee.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertEquals(name, e.getName());

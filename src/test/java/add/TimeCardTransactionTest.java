@@ -28,7 +28,7 @@ public class TimeCardTransactionTest {
         double hours = 8.0;
 
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address, hourlyRate);
-        addHourlyEmployee.excute();
+        addHourlyEmployee.execute();
 
         TimeCardTransaction tct = TimeCardTransaction.builder()
                 .date(date)
@@ -36,7 +36,7 @@ public class TimeCardTransactionTest {
                 .empId(empId)
                 .build();
 
-        tct.excute();
+        tct.execute();
 
         Employee e = PayrollDatabase.getEmployee(empId);
         Assertions.assertNotNull(e);

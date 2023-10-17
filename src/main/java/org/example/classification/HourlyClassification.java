@@ -55,6 +55,7 @@ public class HourlyClassification implements PaymentClassification {
 
         Date payPeriodStartDate = calendar.getTime();
 
+        
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         Date timeCardDate = sdf.parse(String.valueOf(tc.getDate()));
 
