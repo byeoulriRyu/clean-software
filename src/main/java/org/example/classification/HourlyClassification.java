@@ -19,7 +19,7 @@ public class HourlyClassification implements PaymentClassification {
     private double hourlyRate;
 
     @Builder.Default
-    private Map<Long, TimeCard> timeCardMap = new LinkedHashMap<>();
+    private Map<Date, TimeCard> timeCardMap = new LinkedHashMap<>();
 
     public void addTimeCard(TimeCard timeCard) {
         timeCardMap.put(timeCard.getDate(), timeCard);
@@ -54,10 +54,7 @@ public class HourlyClassification implements PaymentClassification {
         calendar.add(Calendar.DATE, -5);
 
         Date payPeriodStartDate = calendar.getTime();
-
-        
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
-        Date timeCardDate = sdf.parse(String.valueOf(tc.getDate()));
+        Date timeCardDate = tc.getDate();
 
         return (( timeCardDate.compareTo(payPeriodStartDate) >= 0 ) && ( timeCardDate.compareTo(payPeriodEndDate) <= 0 ));
     }

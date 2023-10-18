@@ -8,6 +8,6 @@ public class HoldMethod implements PaymentMethod {
 
     @Override
     public void pay(PayCheck pc) {
-
+        pc.putField("Disposition", "Hold");
     }
 }

@@ -12,6 +12,6 @@ public class MailMethod implements PaymentMethod {
 
     @Override
     public void pay(PayCheck pc) {
-
+        pc.putField("Disposition", "Mail");
     }
 }

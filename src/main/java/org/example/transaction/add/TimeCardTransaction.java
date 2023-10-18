@@ -8,10 +8,12 @@ import org.example.entity.Employee;
 import org.example.entity.TimeCard;
 import org.example.transaction.Transaction;
 
+import java.util.Date;
+
 @Builder
 public class TimeCardTransaction implements Transaction {
     private int empId;
-    private long date;
+    private Date date;
     private double hours;
 
     @Override

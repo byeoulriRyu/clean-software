@@ -10,6 +10,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class ServiceChargeTransactionTest {
 
     @BeforeAll
@@ -24,8 +27,11 @@ public class ServiceChargeTransactionTest {
         String address = "Home";
         double hourlyRate = 15.25;
 
-        long date = 20011101;
         double amount = 12.95;
+    
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2001, Calendar.NOVEMBER, 01);
+        Date payDate = calendar.getTime();
 
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address, hourlyRate);
         addHourlyEmployee.execute();
@@ -45,12 +51,12 @@ public class ServiceChargeTransactionTest {
 
         ServiceChargeTransaction sct = ServiceChargeTransaction.builder()
                 .memberId(memberId)
-                .date(date)
+                .date(payDate)
                 .amount(amount)
                 .build();
         sct.execute();
 
-        ServiceCharge sc = af.getServiceCharge(date);
+        ServiceCharge sc = af.getServiceCharge(payDate);
         Assertions.assertNotNull(sc);
         Assertions.assertEquals(amount, sc.getAmount(), .001);
     }

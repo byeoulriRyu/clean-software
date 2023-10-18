@@ -72,8 +72,7 @@ public class PayEmployeeTest {
                 .build();
         pt.execute();
         
-        PayCheck pc = pt.getPayCheck(empId);
-        assertNull(pc);
+        validateHourlyPaycheck(pt, empId, payDate, 0.0);
     }
 
     @Test
@@ -87,10 +86,9 @@ public class PayEmployeeTest {
         calendar.set(2001, Calendar.NOVEMBER, 9);
         Date payDate = calendar.getTime();
     
-        //TODO: HourlyClassification 내 long date 처리 수정 필요
         TimeCardTransaction tc = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(2.0)
                 .build();
         tc.execute();
@@ -100,10 +98,7 @@ public class PayEmployeeTest {
                 .build();
         pt.execute();
     
-        PayCheck pc = pt.getPayCheck(empId);
-        assertNull(pc);
-    
-        validateHourlyPaycheck(pt, empId, payDate, (8 + 1.5) * 15.25);
+        validateHourlyPaycheck(pt, empId, payDate, 30.5);
     }
     
     private void validateHourlyPaycheck(PaydayTransaction paydayTransaction, int empId, Date payDate, double pay) {
@@ -128,7 +123,7 @@ public class PayEmployeeTest {
         
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(9.0)
                 .build();
         timeCardTransaction.execute();
@@ -156,7 +151,7 @@ public class PayEmployeeTest {
     
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(9.0)
                 .build();
         timeCardTransaction.execute();
@@ -184,7 +179,7 @@ public class PayEmployeeTest {
     
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(2.0)
                 .build();
         timeCardTransaction.execute();
@@ -194,7 +189,7 @@ public class PayEmployeeTest {
     
         TimeCardTransaction timeCardTransaction2 = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate2.getTime())
+                .date(payDate2)
                 .hours(5.0)
                 .build();
         timeCardTransaction2.execute();
@@ -223,7 +218,7 @@ public class PayEmployeeTest {
     
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(2.0)
                 .build();
         timeCardTransaction.execute();
@@ -233,7 +228,7 @@ public class PayEmployeeTest {
     
         TimeCardTransaction timeCardTransaction2 = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(dateInPreviousPayPeriod.getTime())
+                .date(dateInPreviousPayPeriod)
                 .hours(5.0)
                 .build();
         timeCardTransaction2.execute();
@@ -298,14 +293,14 @@ public class PayEmployeeTest {
     
         ServiceChargeTransaction serviceChargeTransaction = ServiceChargeTransaction.builder()
                 .memberId(memberId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .amount(19.42)
                 .build();
         serviceChargeTransaction.execute();
     
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(8.0)
                 .build();
         timeCardTransaction.execute();
@@ -345,28 +340,28 @@ public class PayEmployeeTest {
     
         ServiceChargeTransaction serviceChargeTransaction = ServiceChargeTransaction.builder()
                 .memberId(memberId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .amount(19.42)
                 .build();
         serviceChargeTransaction.execute();
     
         ServiceChargeTransaction serviceEarlyChargeTransaction = ServiceChargeTransaction.builder()
                 .memberId(memberId)
-                .date(earlyDate.getTime())
+                .date(earlyDate)
                 .amount(100.00)
                 .build();
         serviceEarlyChargeTransaction.execute();
     
         ServiceChargeTransaction serviceLateChargeTransaction = ServiceChargeTransaction.builder()
                 .memberId(memberId)
-                .date(lateDate.getTime())
+                .date(lateDate)
                 .amount(200.00)
                 .build();
         serviceLateChargeTransaction.execute();
     
         TimeCardTransaction timeCardTransaction = TimeCardTransaction.builder()
                 .empId(empId)
-                .date(payDate.getTime())
+                .date(payDate)
                 .hours(8.0)
                 .build();
         timeCardTransaction.execute();

@@ -1,15 +1,14 @@
 package org.example.transaction.pay;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.example.PayrollDatabase;
 import org.example.entity.Employee;
 import org.example.transaction.Transaction;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Getter
@@ -19,7 +18,7 @@ public class PaydayTransaction implements Transaction {
     private Date payDate;
 
     @Builder.Default
-    private Map<Integer, PayCheck> itsPayChecks = new HashMap<Integer, PayCheck>();
+    private Map<Integer, PayCheck> itsPayChecks = new LinkedHashMap<>();
 
     @Override
     public void execute() throws Exception {

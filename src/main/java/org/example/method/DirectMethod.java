@@ -13,6 +13,7 @@ public class DirectMethod implements PaymentMethod {
 
     @Override
     public void pay(PayCheck pc) {
+        pc.putField("Disposition", "Direct");
 
     }
 }

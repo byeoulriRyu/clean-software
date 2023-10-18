@@ -8,10 +8,12 @@ import org.example.entity.Employee;
 import org.example.entity.ServiceCharge;
 import org.example.transaction.Transaction;
 
+import java.util.Date;
+
 @Builder
 public class ServiceChargeTransaction implements Transaction {
     private int memberId;
-    private long date;
+    private Date date;
     private double amount;
 
     @Override

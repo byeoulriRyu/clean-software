@@ -15,7 +15,7 @@ import java.util.Date;
 @Builder
 public class TimeCard {
 
-    private long date;
+    private Date date;
     private double hours;
 
 }

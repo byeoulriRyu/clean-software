@@ -11,6 +11,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class TimeCardTransactionTest {
 
     @BeforeAll
@@ -29,9 +32,13 @@ public class TimeCardTransactionTest {
 
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, name, address, hourlyRate);
         addHourlyEmployee.execute();
+    
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2001, Calendar.NOVEMBER, 31);
+        Date payDate = calendar.getTime();
 
         TimeCardTransaction tct = TimeCardTransaction.builder()
-                .date(date)
+                .date(payDate)
                 .hours(hours)
                 .empId(empId)
                 .build();

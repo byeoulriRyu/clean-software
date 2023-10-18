@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.example.entity.ServiceCharge;
 import org.example.transaction.pay.PayCheck;
 
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -17,9 +18,9 @@ public class UnionAffiliation implements Affiliation {
     private double dues;
 
     @Builder.Default
-    private Map<Long, ServiceCharge> serviceChargeMap = new LinkedHashMap<>();
+    private Map<Date, ServiceCharge> serviceChargeMap = new LinkedHashMap<>();
 
-    public ServiceCharge getServiceCharge(long date) {
+    public ServiceCharge getServiceCharge(Date date) {
         return serviceChargeMap.get(date);
     }
 
