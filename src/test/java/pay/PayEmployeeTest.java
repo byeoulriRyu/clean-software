@@ -104,7 +104,7 @@ public class PayEmployeeTest {
     private void validateHourlyPaycheck(PaydayTransaction paydayTransaction, int empId, Date payDate, double pay) {
         PayCheck payCheck = paydayTransaction.getPayCheck(empId);
         assertEquals(payDate, payCheck.getPayDate());
-        assertEquals(pay, payCheck.getCrossPay(), .001);
+        assertEquals(pay, payCheck.getGrossPay(), .001);
         assertEquals("Hold", payCheck.getField("Disposition"));
         assertEquals(0.0, payCheck.getDeductions(), .001);
         assertEquals(1000.00, payCheck.getNetPay(), .001);
@@ -269,7 +269,7 @@ public class PayEmployeeTest {
     private void validatePayCheck(PaydayTransaction paydayTransaction, int empId, Date payDate, double pay) {
         PayCheck payCheck = paydayTransaction.getPayCheck(empId);
         assertEquals(payDate, payCheck.getPayDate());
-        assertEquals(pay, payCheck.getCrossPay(), .001);
+        assertEquals(pay, payCheck.getGrossPay(), .001);
         assertEquals("Hold", payCheck.getField("Disposition"));
         assertEquals(0.0, payCheck.getDeductions(), .001);
         assertEquals(1000.00, payCheck.getNetPay(), .001);
@@ -312,7 +312,7 @@ public class PayEmployeeTest {
     
         PayCheck payCheck = paydayTransaction.getPayCheck(empId);
         assertEquals(payDate, payCheck.getPayPeriodEndDate());
-        assertEquals(8 * 15.24, payCheck.getCrossPay(), .001);
+        assertEquals(8 * 15.24, payCheck.getGrossPay(), .001);
         assertEquals("Hold", payCheck.getField("Disposition"));
         assertEquals(9.42 + 19.42, payCheck.getDeductions(), .001);
         assertEquals((8 * 15.24) - (9.42 + 19.42), payCheck.getNetPay(), .001);
@@ -373,7 +373,7 @@ public class PayEmployeeTest {
     
         PayCheck payCheck  = paydayTransaction.getPayCheck(empId);
         assertEquals(payDate, payCheck.getPayPeriodEndDate());
-        assertEquals(8 * 15.24, payCheck.getCrossPay(), .001);
+        assertEquals(8 * 15.24, payCheck.getGrossPay(), .001);
         assertEquals("Hold", payCheck.getField("Disposition"));
         assertEquals(9.42 + 19.42, payCheck.getDeductions(), .001);
         assertEquals((8 * 15.24) - (9.42 + 19.42), payCheck.getNetPay(), .001);

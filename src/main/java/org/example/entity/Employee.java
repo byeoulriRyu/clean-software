@@ -35,10 +35,10 @@ public class Employee {
     }
 
     public void payDay(PayCheck pc) {
-        double grossDay = classification.calculatePay(pc);
+        double grossPay = classification.calculatePay(pc);
         double deductions = affiliation.calculateDeductions(pc);
-        double netPay = grossDay - deductions;
-        pc.setGrossDay(grossDay);
+        double netPay = grossPay - deductions;
+        pc.setGrossPay(grossPay);
         pc.setDeductions(deductions);
         pc.setNetPay(netPay);
         method.pay(pc);

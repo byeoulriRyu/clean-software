@@ -14,7 +14,7 @@ import java.util.Map;
 public class PayCheck {
 
     private Date payDate;
-    private double grossDay;
+    private double grossPay;
     private double deductions;
     private double netPay;
     
@@ -27,11 +27,6 @@ public class PayCheck {
 
     public String getField(String fieldName) {
         return fields.get(fieldName);
-    }
-    
-    public double getCrossPay() {
-        //TODO: 메서드 구현 필요
-        return 0.0;
     }
     
     public Date getPayPeriodEndDate() {
