@@ -8,7 +8,7 @@ import org.example.transaction.add.TimeCardTransaction;
 import org.example.transaction.change.ChangeMemberTransaction;
 import org.example.transaction.pay.PayCheck;
 import org.example.transaction.pay.PaydayTransaction;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
@@ -19,18 +19,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class PayEmployeeTest {
 
-    private static final int empId = 1;
-    private static final String name = "Bob";
-    private static final String address = "Home";
-
-    @BeforeAll
-    public static void before() throws Exception {
+    @BeforeEach
+    public void before() throws Exception {
         PayrollDatabase.clear();
     }
 
     @Test
     @Order(1)
     public void testPaySingleSalariedEmployee() throws Exception {
+
+        int empId = 1;
+        String name = "Bob";
+        String address = "Home";
 
         AddSalariedEmployee t = new AddSalariedEmployee(empId, name, address, 1000.00);
         t.execute();
@@ -57,7 +57,10 @@ public class PayEmployeeTest {
     @Order(2)
     public void testPaySingleHourlyEmployeeNoTimeCards() throws Exception {
         int empId = 1;
-        AddSalariedEmployee t = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);
+        String name = "Bob";
+        String address = "Home";
+
+        AddSalariedEmployee t = new AddSalariedEmployee(empId, name, address, 1000.00);
         t.execute();
     
         Calendar calendar = Calendar.getInstance();
@@ -111,8 +114,9 @@ public class PayEmployeeTest {
         assertEquals(0.0, payCheck.getDeductions(), .001);
         assertEquals(1000.00, payCheck.getNetPay(), .001);
     }
-    
+
     @Test
+    @Order(4)
     public void TestPaySingleHourlyEmployeeOvertimeOneTimeCard() throws Exception {
         int empId = 2;
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
@@ -140,7 +144,7 @@ public class PayEmployeeTest {
     
 
     @Test
-    @Order(4)
+    @Order(5)
     public void testPaySingleHourlyEmployeeOnWrongDate() throws Exception {
         int empId = 2;
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
@@ -168,7 +172,7 @@ public class PayEmployeeTest {
     }
 
     @Test
-    @Order(5)
+    @Order(6)
     public void testPaySingleHourlyEmployeeTwoTimeCards() throws Exception {
         int empId = 2;
         AddHourlyEmployee t = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
@@ -207,7 +211,7 @@ public class PayEmployeeTest {
     
 
     @Test
-    @Order(6)
+    @Order(7)
     public void testPaySingleHourlyEmployeeWithTimeCardsSpanningTwoPayPeriods() throws Exception {
         int empId = 2;
         AddHourlyEmployee addHourlyEmployee = new AddHourlyEmployee(empId, "Bill", "Home", 15.25);
@@ -244,7 +248,7 @@ public class PayEmployeeTest {
     }
 
     @Test
-    @Order(7)
+    @Order(8)
     public void testSalariedUnionMemberDues() throws Exception {
         int empId = 1;
         AddSalariedEmployee addSalariedEmployee = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);
@@ -278,7 +282,7 @@ public class PayEmployeeTest {
     
     
     @Test
-    @Order(8)
+    @Order(9)
     public void testHourlyUnionMemberServiceCharge() throws Exception {
         int empId = 1;
         AddSalariedEmployee addSalariedEmployee = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);
@@ -321,7 +325,7 @@ public class PayEmployeeTest {
     }
 
     @Test
-    @Order(9)
+    @Order(10)
     public void testServiceChargesSpanningMultiplePayPeriods() throws Exception {
         int empId = 1;
         AddSalariedEmployee addSalariedEmployee = new AddSalariedEmployee(empId, "Bob", "Home", 1000.00);

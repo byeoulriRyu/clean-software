@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Getter
@@ -19,10 +19,14 @@ public class PayCheck {
     private double netPay;
     
     @Builder.Default
-    private Map<String, String> fieldMap = new HashMap<>();
+    private Map<String, String> fields = new LinkedHashMap<>();
+
+    public void putField(String key, String value) {
+        fields.put(key, value);
+    }
 
     public String getField(String fieldName) {
-        return fieldMap.get(fieldName);
+        return fields.get(fieldName);
     }
     
     public double getCrossPay() {
